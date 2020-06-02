@@ -41,7 +41,7 @@ Open up a terminal and perform the following git command:
 
 ```shell
 git clone https://github.com/MarkProminic/Switchboard.git
-cd Vagrant-Guacamole-CentOS-8.1
+cd Switchboard
 ```
 ### Starting Vagrant
 The installation process is estimated to take about 15 - 30 Minutes (mayber longer on older machines)
