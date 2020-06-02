@@ -1,0 +1,16 @@
+.DS_Store
+gradle
+build/assets
+build/classes
+build/gson-classes
+build/gsp-classes
+build/gsptmp
+build/resources
+build/springloaded
+build/tmp
+build/.dependencies
+build/.mainClass
+out
+**/*.iml
+.gradle/**
+.idea/**

@@ -1,0 +1,1008 @@
+/*
+ * Developed by Luis Alcantara
+ *
+ * Copyright (C) 2016-2019 Prominic.NET, Inc.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the Server Side Public License, version 1,
+ * as published by MongoDB, Inc.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * Server Side Public License for more details.
+ *
+ * You should have received a copy of the Server Side Public License
+ * along with this program. If not, see
+ * <http://www.mongodb.com/licensing/server-side-public-license>.
+ *
+ * As a special exception, the copyright holders give permission to link the
+ * code of portions of this program with the OpenSSL library under certain
+ * conditions as described in each individual source file and distribute
+ * linked combinations including the program with the OpenSSL library. You
+ * must comply with the Server Side Public License in all respects for
+ * all of the code used other than as permitted herein. If you modify file(s)
+ * with this exception, you may extend this exception to your version of the
+ * file(s), but you are not obligated to do so. If you do not wish to do so,
+ * delete this exception statement from your version. If you delete this
+ * exception statement from all source files in the program, then also delete
+ * it in the license file.
+ */
+
+/**
+Login view
+*/
+
+#login {
+    margin: 15px 0;
+    padding: 0;
+    text-align: center;
+}
+
+#login .inner {
+    width: 340px;
+    padding-bottom: 6px;
+    margin: 60px auto;
+    text-align: left;
+    border: 1px solid #aab;
+    background-color: #f0f0fa;
+    -moz-box-shadow: 2px 2px 2px #eee;
+    -webkit-box-shadow: 2px 2px 2px #eee;
+    -khtml-box-shadow: 2px 2px 2px #eee;
+    box-shadow: 2px 2px 2px #eee;
+}
+
+#login .inner .fheader {
+    padding: 18px 26px 14px 26px;
+    background-color: #f7f7ff;
+    margin: 0 0 14px 0;
+    color: #2e3741;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#login .inner .cssform p {
+    clear: left;
+    margin: 0;
+    padding: 4px 0 3px 0;
+    padding-left: 105px;
+    margin-bottom: 20px;
+    height: 1%;
+}
+
+#login .inner .cssform input[type="text"] {
+    width: 120px;
+}
+
+#login .inner .cssform label {
+    font-weight: bold;
+    float: left;
+    text-align: right;
+    margin-left: -105px;
+    width: 110px;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+
+#login #remember_me_holder {
+    padding-left: 120px;
+}
+
+#login #submit {
+    margin-left: 15px;
+}
+
+#login #remember_me_holder label {
+    float: none;
+    margin-left: 0;
+    text-align: left;
+    width: 200px
+}
+
+#login .inner .login_message {
+    padding: 6px 25px 20px 25px;
+    color: #c33;
+}
+
+#login .inner .text_ {
+    width: 120px;
+}
+
+#login .inner .chk {
+    height: 12px;
+}
+
+#logo {
+    height: 100%;
+    width: 100%;
+}
+
+.btn-md{
+    padding: 4px 2px;
+    font-size: 16px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+.btn-xl{
+    padding: 4px 2px;
+    font-size: 32px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.text-vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+#agent-list
+{
+    max-height: 692px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.agent-pane{
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.agent-pane-title{
+    font-weight: bold;
+    font-size: 24px;
+}
+.agent-pane-title > p {
+    padding: 0;
+    margin: 5px 0 10px 0;
+}
+.agent-pane-body{
+    font-size: 14px;
+}
+.agent-pane-name{
+    padding-right: 0;
+}
+
+.agent-on-call {
+    background: rgba(44, 222, 66, 0.5);
+}
+
+.agent-owned-call {
+    font-size: 10pt;
+}
+
+#location{
+    width: auto;
+    margin: 5px 0 10px 8px;
+}
+#location:focus{
+    outline: none;
+}
+
+.action-pane{
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+.action-pane-container{
+     margin-right: 0;
+     padding-right: 0;
+ }
+.action-pane-list{
+    padding-left: 0;
+    padding-right: 0;
+}
+.action-pane-list-item{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.active-action-pane-list-item{
+    background: #777;/*linear-gradient(90deg, #777, #555, #333, #333, #333, #555, #777);*/
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+ }
+.action-pane-icon{
+    padding: 25px 15px !important;
+}
+.active-action-pane-icon{
+    color: #f8f8f8 !important;
+    padding: 25px 15px !important;
+}
+
+.detail-pane{
+    padding-right: 0;
+    padding-left: 0;
+}
+.detail-pane-panel{
+     padding-bottom: 0;
+ }
+.detail-pane-panel-title{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.detail-pane-button-container{
+    padding-left: 0;
+}
+.detail-container{
+    position: relative;
+}
+.detail-inner-container{
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.text-flyout{
+    position: relative;
+    right: 0;
+    color: #444;
+    font-size: 30px;
+    min-height: 50px;
+    line-height: inherit;
+    margin: 15px 0 20px 0;
+    z-index: -1;
+ }
+
+.extension-detail{
+    margin-bottom: 0;
+}
+
+li[id^="conf"] {
+    background-color: #e7e7e7;
+    border-color: #c7c7c7;
+}
+
+.list-container{
+    max-height: 255px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.favorites-list-container{
+    min-width: 352px;
+    min-height: 127px;
+    max-height: 255px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.favorites-item-header{
+    padding: 3px;
+}
+.phone-number-list{
+    max-width: 336px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.btn-group {
+    margin-bottom: 1px;
+    margin-right: 1px;
+}
+
+.material-icons-sm {
+    font-size: 14px;
+}
+
+.dropdown-menu>li>a.no-hover:hover {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+#sip-trunk-list {
+    max-height: 220px;
+}
+
+.inbound-route-delete-btns {
+    z-index: 6;
+}
+
+.scrollable-list{
+    overflow-y: auto;
+}
+
+.modal-backdrop{
+    z-index: 4;
+    opacity: 0.75;
+}
+.modal-dialog {
+    z-index: 5;
+    height: 75vh;
+    width: 75%;
+}
+.scrollable-modal{
+    overflow-y: auto;
+    max-height: 75vh;
+    height: 100%;
+}
+
+html, #login {
+    background-color: #c3c3c3;
+    /*overflow: hidden;*/
+}
+
+.list-group {
+    margin-bottom: 0;
+}
+
+.list-group-item {
+    border-color: #CCC;
+}
+
+.well {
+    border-color: #aaa;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.call-btn{
+    min-width: 85px;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.hover-highlight:hover{
+    background: #aaaaaa;
+    color: white;
+    opacity: 0.5;
+}
+
+a.pagination-link {
+    cursor: pointer;
+}
+
+/* Typeahead CSS */
+.typeahead {
+    background-color: #fff;
+}
+.typeahead, .tt-hint {
+    width: 300px;
+}
+.typeahead:focus {
+    border: 2px solid #0097cf;
+}
+.tt-query {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.tt-hint {
+    color: #999;
+    padding: 1px;
+}
+.tt-suggestion {
+    padding: 3px 20px;
+    font-size: 18px;
+    line-height: 24px;
+}
+.tt-suggestion:hover .name-suggestion{
+    cursor: pointer;
+    color: #fff;
+    background-color: #0097cf;
+}
+.tt-suggestion.tt-cursor .name-suggestion{
+    color: #fff;
+    background-color: #0097cf;
+
+}
+.tt-suggestion p {
+    margin: 0;
+}
+.tt-dropdown {
+    background: #f2f2f2;
+    border: 1px solid #aaa;
+    width: 100%;
+    max-height: 275px;
+    overflow-y: auto;
+}
+
+#search-panel {
+    margin-top: 5px;
+}
+
+#search-results.populated {
+    background-color: #E5E5E5;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+#typeahead-menu {
+    position: relative;
+}
+
+#contacts-pending-gadget {
+    position: absolute;
+    background: rgba(200, 200, 200, 0.7);
+    width: 97%;
+    height: 45px;
+    margin-left: 0;
+    z-index: 10;
+}
+
+#contacts-pending-spinner {
+    margin-top: 5px;
+}
+
+#connection-error-banner {
+    text-align: center;
+    background: #cd0a0a;
+    color: white;
+    height: 40px;
+    width: 100vw;
+    position: fixed;
+    z-index: 10;
+}
+
+.folder-name {
+    margin: 0;
+    padding: 0 0 0 5px;
+}
+
+.queue{
+    border-top: 1px solid #d5d5d5;
+}
+.queue:first-of-type{
+    border: none;
+}
+
+.queue-header {
+    cursor: pointer;
+}
+
+.queue-header:hover {
+    background: #E7E7E7;
+}
+
+.marginless {
+    margin: 0;
+}
+
+li[id^='user-extension']:focus {
+    background: green;
+}
+
+label[disabled] {
+    font-color: #ddd;
+}
+
+input.form-control{
+    font-size: 14px;
+    padding: 5px 6px;
+}
+
+#inbound-route-list{
+    max-height: 241px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 15px 0 15px;
+}
+#inbound-route-list ul{
+    margin: 0;
+}
+#inbound-route-list li {
+    padding: 5px 10px;
+}
+
+#new-route-row, #new-extension-row{
+    padding-bottom: 10px;
+}
+
+#new-step-row {
+    padding-top: 10px;
+    border-top: none;
+}
+
+.invalid-field {
+    background: salmon;
+    opacity: 0.5;
+}
+
+.view-col{
+    padding: 0 5px;
+}
+
+.well-hr {
+    border-color: #C3C3C3;
+}
+
+#conference-room-list .panel-heading{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#conference-room-list .panel.panel-primary{
+    margin-bottom: 5px;
+}
+
+.conf-header{
+    border-bottom: 1px solid #d5d5d5;
+    margin-bottom: 4px;
+}
+
+ .conf-header h4 {
+     font-weight: 500;
+ }
+
+.chevron{
+     color: #BBB;
+     padding-top: 5px;
+ }
+
+.bold {
+    font-weight: bold;
+}
+
+#pending-call-list{
+    padding: 0;
+    margin: 0;
+    max-height: 347px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#queue-panel {
+    margin-top: -5.5px;
+}
+
+.queue-pending-call,
+.queue-active-call,
+.parked-call
+{
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.queue-pending-call p,
+.queue-active-call p,
+.parked-call p
+{
+    font-size: 14px;
+    margin: 0;
+}
+
+.queue-pending-call div,
+.queue-active-call div,
+.parked-call div
+{
+    padding: 0 2px;
+}
+
+.queue-pending-call .queue-call-name,
+.queue-active-call .queue-call-member
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.queue-call-duration {
+    font-size: 12px;
+}
+
+.queue-pending-call .queue-call-btn,
+
+.parked-call .btn-group-sm {
+    padding-top: 3px;
+}
+
+#parking-lot .parked-call .parked-call-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.queue-active-call,
+#vm-messages-list .new-message
+{
+    background-color: rgba(44, 222, 66, 0.5)
+}
+
+p.parked-info {
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+.vm-message-date-column {
+    padding-left: 3px;
+}
+
+#vm-messages-list .message p.vm-message-date {
+    font-size: 12px;
+}
+
+#vm-messages-list .message audio{
+    width: 70%;
+}
+
+.queue-member-list,
+#favorites-list
+{
+    max-height: 185px;
+    overflow-y: auto;
+}
+
+#vm-messages-list
+{
+    max-height: 175px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.queue-member:last-child{
+    border-bottom: none;
+}
+
+.queue-member,
+.favorite,
+.message {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.favorite div:hover {
+    background-color: #E7E7E7;
+}
+.favorite li:hover {
+    background-color: #e7e7e7;
+}
+
+#user-tile {
+    padding-bottom: 0;
+}
+
+.user-call{
+    padding-top: 0;
+    padding-left: 2.5px;
+}
+
+.queue-member div,
+.favorite div,
+.message div,
+#user-tile div {
+    padding-right: 0;
+}
+
+#user-container {
+    margin-top: 5px;
+}
+
+#user-tile > div > div > .state-icon:hover,
+#user-location:hover{
+    border: 1px solid #CCCCCC;
+}
+
+.queue-member-controls
+{
+    padding-top: 5px;
+    margin-right: 5px;
+}
+
+.vm-controls,
+.favorite-controls {
+    padding-top: 3px;
+    margin-right: 5px;
+}
+
+.phone-list-item {
+    padding: 0 2px;
+}
+
+/*Vertical Navbar*/
+
+.body-pane {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-header li {
+    display: block;
+    color: white;
+}
+
+.navbar .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar .navbar-brand {
+    padding-right: 2px;
+    margin-bottom: 6px;
+}
+
+.navbar-nav li a.dropdown-toggle {
+    padding: 4px 2px;
+}
+
+.nav li a {
+    padding: 4px 2px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.nav>li.hidden {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left:0;
+        padding-right:0;
+    }
+    .navbar-collapse.collapse {
+        display: block !important;
+        width: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+    .navbar-collapse.in {
+        overflow-x: visible;
+    }
+    .navbar
+    {
+        height: 100vh;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .navbar-nav,
+    .navbar-nav > li,
+    .navbar-left,
+    .navbar-right,
+    .navbar-header
+    {float:none !important;}
+
+    .navbar-right .dropdown-menu {left:0;right:auto;}
+    .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #main-pane,
+    #navbar-toggle-pane,
+    #navbar-pane,
+    #navbar-master-pane
+    {
+        position: relative;
+        float: left;
+    }
+
+    #main-pane {
+        margin-top: 5px;
+        width: 88.9%;
+        height: 100vh;
+    }
+
+    #navbar-master-pane {
+        height: 100vh;
+    }
+
+    #navbar-pane {
+        width: 130px;
+    }
+
+    #navbar-toggle-pane {
+        color: #efefef;
+        background-color: #444;
+        width: 10px;
+        height: 100vh;
+    }
+
+    div.fa {
+        margin-top: 50vh;
+        height: 50%;
+        width: 100%;
+    }
+}
+
+#user-followme,
+#user-ring-groups
+{
+    margin-top: 10px;
+}
+
+#user-settings-modal .modal-body {
+    overflow-y: auto;
+    height: 75vh;
+}
+
+
+
+.new-ring-group-extension-list div{
+    padding-left: 0;
+    padding-right: 0;
+    vertical-align: text-bottom;
+}
+
+.new-ring-group-extension-list h6 {
+    margin-bottom: 0;
+}
+
+#new-ring-group-extension-list,
+#new-step-element-list
+{
+    padding: 5px 2px ;
+    background-color: #f5f5f5;
+    border: 1px solid #aaa;
+}
+
+.checkbox {
+    margin: 0;
+}
+
+.ring-group {
+    padding: 0;
+}
+
+#interface-panel{
+    height: 90vh;
+    position: relative;
+    z-index: 0;
+}
+
+#recordings-panel,
+#admin-records-panel {
+    position: relative;
+    z-index: 1;
+}
+
+div.bordered
+{
+    border: 1px solid black;
+}
+
+div.scrollable
+{
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+#recordings-table,
+#records-table
+{
+    background: white;
+}
+
+#recordings-list {
+    height: calc(100vh - 95px);
+    overflow-y: auto;
+}
+
+/*Custom Audio Player*/
+.player-div {
+    background-color: #9b9b9b;
+    color: white;
+    width: 350px;
+    height: 30px;
+}
+
+.player-scrubber {
+    position: relative;
+    top: 10px;
+    height: 10px;
+    width: 150px;
+    background-color: #777;
+}
+
+.handle-container {
+    width: 150px;
+    height: 10px;
+    position: relative;
+}
+
+.progress-handle {
+    position: relative;
+    bottom: 1.5px;
+    right: 6px;
+    width: 13px;
+    height: 13px;
+    background-color: #2e65e0;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.player-duration-display,
+.player-time-display {
+    position: relative;
+    top: 3px;
+}
+
+.player-duration-display {
+    right: 12.5px;
+}
+
+.player-time-display {
+    right: 7.5px;
+}
+
+.progress-bar {
+    position: relative;
+    height: 10px;
+    background-color: #DDD;
+    /*opacity: 0.5;*/
+    /*border: 0.5px solid black;*/
+}
+
+.play-button, .pause-button {
+    position: relative;
+    top: 2.5px;
+}
+
+/*Call Record Panel*/
+#pending-call-record-list{
+    max-height: 118px;
+    overflow-y: auto;
+}
+.view-record-btn {
+    margin: 10px 5px 0 0
+}
+
+.error-message * {
+    border: 1px solid red;
+    margin: 0;
+}
+
+#record-table-header
+{
+    max-height: 30vh
+}
+
+#record-table-container,
+#record-search-table-container
+{
+    max-height: calc(95vh - 10px);
+    overflow-y: auto;
+}
+
+#records-table td{
+    font-size: 14px;
+}
+
+#user-pending-records-table {
+    max-height: calc(100vh - 10px);
+    overflow-y: auto;
+}
+
+/* Admin Panel */
+#admin-agent-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.admin-unregistered-peer{
+    background: #ff8888;
+    border: black;
+}
+
+#admin-peer-list {
+    max-height: 345px;
+    overflow-y: auto;
+}
+
+/* Action log */
+#action-log
+{
+    position: absolute;
+    top: 90vh;
+
+    height: 10vh;
+    max-height: 10vh;
+    width: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#action-log p
+{
+    height: 50%;
+}

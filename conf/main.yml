@@ -1,0 +1,188 @@
+--- 
+- 
+  become: true
+  gather_facts: true
+  hosts: all
+  name: "First Playbook"
+  vars_files:
+    - all
+  tasks: 
+    - 
+      debug: 
+        msg: "The hostname is {{ ansible_hostname }} and the OS is {{ ansible_version }}"
+      name: "Display the config"
+    - 
+      name: "Install a list of packages"
+      yum: 
+        name: 
+          - java-1.8.0-openjdk-devel
+          - net-tools
+          - vim
+          - bash-completion
+          - tmux
+          - tree
+          - htop
+          - wget
+          - unzip
+          - curl
+          - git
+    - 
+      name: "Set timezone to {{ timezone }}"
+      timezone: 
+        name: "{{ timezone }}"
+    - 
+      blockinfile: 
+        block: |
+            {{ asterisk_ip }} {{ asterisk_host }} vagrant.asterisk asterisk
+            {{ webinterface_ip }} {{ webinterface_host }} vagrant.interface interface
+            {{ postgres_ip }} {{ postgres_host }} vagrant.postgres postgres
+        create: true
+        path: /etc/hosts
+      name: "Setting Host File Configuration for Switchboard Cluster"
+    - 
+      name: "Starting NFS"
+      service: 
+        enabled: true
+        name: nfs
+        state: started
+    - 
+      blockinfile: 
+        block: |
+        create: true
+        path: /etc/fstab
+      name: "Setting Host File Configuration for Switchboard Cluster"
+    - name: Creating NFS Mount directory
+      file:
+        path: /nfs-mounts/asterisk
+        state: directory
+
+    - name: set mountpoints
+      mount: 
+        fstype: nfs
+        opts: defaults
+        dump: 0
+        passno: 0
+        state: mounted
+        src: "{{ item.src }}"
+        path: "{{ item.path }}"
+      with_items:
+         - { path: "/nfsmounts/asterisk", src: "{{asterisk_ip}}:/data" }
+
+    - command: "yum clean all"
+      name: "Cleaning Yum Cache"
+    - name: Add EPEL repository
+      yum:
+        name: epel-release
+        state: present
+    - name: Add tomcat group
+      group:
+        name: tomcat
+    - name: Add "tomcat" user
+      user:
+        name: tomcat
+        group: tomcat
+        home: /usr/share/tomcat
+        createhome: no
+        system: yes
+    - name: Download Tomcat
+      get_url:
+        url: "{{ tomcat_archive_url }}"
+        dest: "{{ tomcat_archive_dest }}"
+    - name: "Ensure Tomcat has its directory"
+      file:
+        path: /usr/share/tomcat
+        state: directory
+    - name: Extracting tomcat archive
+      unarchive:
+        src: "{{ tomcat_archive_dest }}"
+        dest: /usr/share/tomcat
+        owner: tomcat
+        group: tomcat
+        remote_src: yes
+        extra_opts: "--strip-components=1"
+        creates: /usr/share/tomcat/bin
+    - 
+      name: Copying tomcat service file
+      template:
+        src: templates/tomcat.service.j2
+        dest: /etc/systemd/system/tomcat.service
+    - 
+      name: Copying tomcat server.xml
+      template:
+        src: templates/server.xml.j2
+        dest: /usr/share/tomcat/conf/server.xml
+    - 
+      name: Copying tomcat context.xml
+      template:
+        src: templates/context.xml.j2
+        dest: /usr/share/tomcat/conf/context.xml
+    - 
+      name: Copying tomcat tomcat-users.xml
+      template:
+        src: templates/web.xml.j2
+        dest: /usr/share/tomcat/conf/web.xml
+    - 
+      name: Copying tomcat web.xml
+      template:
+        src: templates/tomcat-users.xml.j2
+        dest: /usr/share/tomcat/conf/tomcat-users.xml
+    - 
+      name: Copying Tomcat manager-contex.xml
+      template:
+        src: templates/manager-context.xml.j2
+        dest: /usr/share/tomcat/webapps/manager/META-INF/manager-context.xml
+    - 
+      name: Copying setenv.sh to /bin to be used when Tomcat starts up
+      template:
+        src: templates/setenv.sh
+        dest: /usr/share/tomcat/bin/setenv.sh
+    - 
+      name: Copying tomcat service file
+      template:
+        src: templates/tomcat.service.j2
+        dest: /etc/systemd/system/tomcat.service
+      when: ansible_service_mgr == "systemd"
+    - name: Start and enable tomcat
+      service:
+        daemon_reload: yes
+        name: tomcat
+        state: started
+        enabled: yes
+      when: ansible_service_mgr == "systemd"
+    - name: Start and enable firewalld
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+      when: ansible_service_mgr == "systemd"
+    - name: Open tomcat port on the firewall
+      firewalld:
+        port: 443/tcp
+        permanent: true
+        state: enabled
+        immediate: yes
+      when: ansible_service_mgr == "systemd"
+    - 
+      name: update WAR file from source directory, always run to ensure VM has most up to date WAR
+      copy:
+        src: /vagrant/interface-source/build/libs/ROOT.war
+        dest: /usr/share/tomcat/webapps/ROOT.war
+    - 
+      name:  Remove default ROOT application so that ours can live there instead
+      file:
+       path: /usr/share/tomcat/webapps/ROOT
+       state: absent
+    - name: Create a directory if it does not exist
+      file:
+        path: /var/log/phoneinterface
+        state: directory
+        mode: '0755'
+        owner: tomcat
+        group: tomcat
+    - name: Start and enable tomcat
+      service:
+        daemon_reload: yes
+        name: tomcat
+        state: started
+        enabled: yes
+      when: ansible_service_mgr == "systemd"

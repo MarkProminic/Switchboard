@@ -1,0 +1,1 @@
+<li><a href='#' onclick='callAgent(${this.extension.agent.id}, ${this.extension.id})' >${this.extension.displayName}</a></li>

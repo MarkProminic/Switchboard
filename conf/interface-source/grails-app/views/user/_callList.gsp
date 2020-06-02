@@ -1,0 +1,1 @@
+<g:render template="/user/userCall" collection="${userCalls}" var="call" />
