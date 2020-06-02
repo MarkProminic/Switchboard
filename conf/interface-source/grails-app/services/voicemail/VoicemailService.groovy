@@ -81,7 +81,7 @@ class VoicemailService implements GrailsConfigurationAware {
                     url: sqlConnectionString,
                     user: sqlUsername,
                     password: sqlPassword,
-                    driver: sqlDriver,
+                    driver: sqlDriver
             )
         }
         catch(Exception e){
