@@ -1,5 +1,5 @@
-# Guacamole Gateway
-Primary goal is to use Vagrant to deploy Guacamole on CentOS as a means to provide a HTML5 GUI for multiple Projects.
+# Switchboard Phone Web Interface
+Primary goal is to use Vagrant to deploy Switchboard Phone Web Interface on CentOS 7 as a means to provide a GUI for a Asterisk based phone system.
 
 ## Getting Started
 
@@ -35,12 +35,12 @@ yum -y install https://releases.hashicorp.com/vagrant/1.9.6/vagrant_1.9.6_x86_64
 sudo yum install git
 ```
 
-### Downloading Vagrant-Guacamole-CentOS-8.1 Project
+### Downloading Switchboard Phone Web Interface Project
 
 Open up a terminal and perform the following git command:
 
 ```shell
-git clone https://github.com/Makr91/Vagrant-Guacamole-CentOS-8.1.git
+git clone https://github.com/MarkProminic/Switchboard.git
 cd Vagrant-Guacamole-CentOS-8.1
 ```
 ### Starting Vagrant
@@ -67,7 +67,7 @@ Please read [CONTRIBUTING.md](https://www.prominic.net) for details on our code 
 
 * **Mark Gilbert** - *Initial work* - [Makr91](https://github.com/Makr91)
 
-See also the list of [contributors](https://github.com/Makr91/Vagrant-Guacamole-CentOS-8.1/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/MarkProminic/Switchboard/graphs/contributors) who participated in this project.
 
 ## License
 
