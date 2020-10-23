@@ -1,6 +1,4 @@
 userpass: rando
-asterisk_ip: 192.168.2.164
-webinterface_ip: 192.168.2.165
 tomcat_archive_url: "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.35/bin/apache-tomcat-9.0.35.tar.gz"
 tomcat_archive_dest: /opt/tomcat
 secure_port: 443
@@ -8,6 +6,9 @@ insecure_port: 80
 cert_path: /FreeNAS-02/Acme/STAR.m4kr.net/m4kr.net/m4kr.net.cer
 key_path: /FreeNAS-02/Acme/STAR.m4kr.net/m4kr.net/m4kr.net.key
 timezone: "America/Chicago"
+asterisk_ip: 192.168.2.164
+webinterface_ip: 192.168.2.165
+postgres_ip: 192.168.2.166
 asterisk_host: vagrant.asterisk
 webinterface_host: vagrant.webinterface
 postgres_host: vagrant.postgres
