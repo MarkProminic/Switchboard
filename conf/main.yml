@@ -31,15 +31,6 @@
       timezone: 
         name: "{{ timezone }}"
     - 
-      blockinfile: 
-        block: |
-            {{ asterisk_ip }} {{ asterisk_host }} vagrant.asterisk asterisk
-            {{ webinterface_ip }} {{ webinterface_host }} vagrant.interface interface
-            {{ postgres_ip }} {{ postgres_host }} vagrant.postgres postgres
-        create: true
-        path: /etc/hosts
-      name: "Setting Host File Configuration for Switchboard Cluster"
-    - 
       name: "Starting NFS"
       service: 
         enabled: true
